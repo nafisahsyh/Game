@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#080808">
+
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="apple-touch-icon" href="favicon.png">
+    <meta name="theme-color" content="#08090d">
+
+    <title>RUMAH TERAKHIR | A Horror Story</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <div id="game">
+
+        <!-- ==============================
+             MENU UTAMA
+        =============================== -->
+        <section id="mainMenu" class="screen active">
+
+            <div class="menu-background">
+                <div class="fog fog-one"></div>
+                <div class="fog fog-two"></div>
+                <div class="menu-darkness"></div>
+            </div>
+
+            <div class="menu-content">
+
+                <p class="eyebrow">
+                    SEBUAH PERMAINAN HOROR PSIKOLOGIS
+                </p>
+
+                <h1 class="game-title">
+                    RUMAH<br>TERAKHIR
+                </h1>
+
+                <p class="menu-description">
+                    Beberapa pintu seharusnya tidak pernah dibuka.
+                </p>
+
+                <div class="menu-buttons">
+
+                    <button id="startButton">
+                        MULAI PERMAINAN
+                    </button>
+
+                    <button id="continueButton">
+                        LANJUTKAN PERMAINAN
+                    </button>
+
+                    <button id="settingsButton">
+                        PENGATURAN
+                    </button>
+
+                    <button id="creditsButton">
+                        KREDIT
+                    </button>
+
+                </div>
+
+                <p class="menu-footer">
+                    RUMAH TERAKHIR © 2026
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- ==============================
+             LAYAR PERMAINAN
+        =============================== -->
+        <section id="gameScreen" class="screen">
+
+            <div id="scene">
+
+                <div id="sceneBackground"></div>
+
+                <div id="sceneLighting"></div>
+
+                <div id="sceneOverlay"></div>
+
+                <div id="sceneContent">
+
+                    <!-- INFORMASI LOKASI -->
+                    <header class="top-bar">
+
+                        <div>
+                            <span class="location-label">
+                                LOKASI SAAT INI
+                            </span>
+
+                            <h2 id="locationName">
+                                RUANG TAMU
+                            </h2>
+                        </div>
+
+                        <div id="gameTime">
+                            23:47
+                        </div>
+
+                    </header>
+
+
+                    <!-- STATUS PERMAINAN -->
+                    <div id="statusBar">
+
+                        <div class="status-item">
+                            <span>KESEHATAN</span>
+                            <div class="status-track">
+                                <div id="healthBar"></div>
+                            </div>
+                        </div>
+
+                        <div class="status-item">
+                            <span>KETENANGAN</span>
+                            <div class="status-track">
+                                <div id="sanityBar"></div>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                    <!-- AREA NARASI -->
+                    <div id="narrationBox">
+
+                        <p id="narrationText"></p>
+
+                        <span id="typingIndicator">
+                            ...
+                        </span>
+
+                    </div>
+
+
+                    <!-- AREA DIALOG -->
+                    <div id="dialogueBox" class="hidden">
+
+                        <p id="characterName">
+                            NAMA TOKOH
+                        </p>
+
+                        <p id="dialogueText"></p>
+
+                    </div>
+
+
+                    <!-- AREA INTERAKSI -->
+                    <div id="interactionBox">
+
+                        <p class="interaction-heading">
+                            APA YANG INGIN KAMU LAKUKAN?
+                        </p>
+
+                        <div id="interactionOptions"></div>
+
+                    </div>
+
+
+                    <!-- NAVIGASI BAWAH -->
+                    <footer class="bottom-bar">
+
+                        <button id="inventoryButton">
+                            TAS
+                        </button>
+
+                        <button id="journalButton">
+                            CATATAN
+                        </button>
+
+                        <button id="mapButton">
+                            PETA
+                        </button>
+
+                        <button id="menuButton">
+                            MENU
+                        </button>
+
+                    </footer>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ==============================
+             INVENTORY
+        =============================== -->
+        <section id="inventoryScreen" class="screen">
+
+            <div class="panel">
+
+                <p class="panel-eyebrow">BARANG BAWAAN</p>
+
+                <h2>TAS BARANG</h2>
+
+                <p class="panel-description">
+                    Barang-barang yang berhasil kamu temukan.
+                </p>
+
+                <div id="inventoryItems"></div>
+
+                <button class="backButton">
+                    KEMBALI
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- ==============================
+             CATATAN
+        =============================== -->
+        <section id="journalScreen" class="screen">
+
+            <div class="panel">
+
+                <p class="panel-eyebrow">REKAMAN PERJALANAN</p>
+
+                <h2>CATATAN</h2>
+
+                <div id="journalEntries"></div>
+
+                <button class="backButton">
+                    KEMBALI
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- ==============================
+             PETA
+        =============================== -->
+        <section id="mapScreen" class="screen">
+
+            <div class="panel">
+
+                <p class="panel-eyebrow">DENAH BANGUNAN</p>
+
+                <h2>PETA RUMAH</h2>
+
+                <div id="mapContent"></div>
+
+                <button class="backButton">
+                    KEMBALI
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- ==============================
+             PENGATURAN
+        =============================== -->
+        <section id="settingsScreen" class="screen">
+
+            <div class="panel">
+
+                <p class="panel-eyebrow">SESUAIKAN PERMAINAN</p>
+
+                <h2>PENGATURAN</h2>
+
+                <div class="setting-option">
+
+                    <label for="textSpeed">
+                        KECEPATAN TEKS
+                    </label>
+
+                    <input type="range" id="textSpeed" min="10" max="100" value="35">
+
+                </div>
+
+                <div class="setting-option">
+
+                    <label for="brightnessControl">
+                        KECERAHAN LAYAR
+                    </label>
+
+                    <input type="range" id="brightnessControl" min="50" max="120" value="100">
+
+                </div>
+
+                <button id="resetSettingsButton">
+                    ATUR ULANG
+                </button>
+
+                <button class="backButton">
+                    KEMBALI
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- ==============================
+             KREDIT
+        =============================== -->
+        <section id="creditsScreen" class="screen">
+
+            <div class="panel">
+
+                <p class="panel-eyebrow">DI BALIK CERITA</p>
+
+                <h2>KREDIT</h2>
+
+                <p>RUMAH TERAKHIR</p>
+
+                <p>
+                    Sebuah permainan horor interaktif.
+                </p>
+
+                <p>
+                    Terima kasih telah memasuki rumah ini.
+                </p>
+
+                <button class="backButton">
+                    KEMBALI
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- ==============================
+             JUMPSCARE
+        =============================== -->
+        <div id="jumpscareScreen" class="hidden">
+
+            <div id="jumpscareContent"></div>
+
+        </div>
+
+
+        <!-- ==============================
+             NOTIFIKASI
+        =============================== -->
+        <div id="notification" class="hidden"></div>
+
+
+        <!-- ==============================
+             EFEK VISUAL
+        =============================== -->
+        <div id="visualEffects">
+
+            <div id="screenFlash"></div>
+
+            <div id="screenVignette"></div>
+
+            <div id="screenGrain"></div>
+
+        </div>
+
+    </div>
+
+
+    <!-- ==============================
+         JAVASCRIPT
+    =============================== -->
+
+    <script src="js/story.js"></script>
+    <script src="js/effects.js"></script>
+    <script src="js/game.js"></script>
+
+</body>
+
+</html>
