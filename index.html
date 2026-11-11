@@ -1,381 +1,446 @@
+
 <!DOCTYPE html>
 <html lang="id">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#080808">
-
-    <link rel="icon" type="image/png" href="favicon.png">
-    <link rel="apple-touch-icon" href="favicon.png">
-    <meta name="theme-color" content="#08090d">
-
-    <title>RUMAH TERAKHIR | A Horror Story</title>
-
+    <meta name="theme-color" content="#102b46">
+    <title>Ocean Bites - Seafood Restaurant</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 </head>
-
 <body>
 
-    <div id="game">
+<div class="game-wrapper">
 
-        <!-- ==============================
-             MENU UTAMA
-        =============================== -->
-        <section id="mainMenu" class="screen active">
+    <!-- SIDEBAR -->
+    <aside class="sidebar" id="sidebar">
+        <div class="brand">
+            <div class="brand-icon">🦀</div>
+            <div>
+                <h2>Ocean Bites</h2>
+                <span>Seafood Restaurant</span>
+            </div>
+        </div>
 
-            <div class="menu-background">
-                <div class="fog fog-one"></div>
-                <div class="fog fog-two"></div>
-                <div class="menu-darkness"></div>
+        <div class="restaurant-profile">
+            <div class="profile-avatar">👩‍🍳</div>
+            <div class="profile-info">
+                <strong>Restaurant Owner</strong>
+                <span id="ownerLevel">Level 1 · Beginner</span>
+            </div>
+        </div>
+
+        <div class="sidebar-label">MAIN MENU</div>
+
+        <nav class="navigation">
+            <button class="nav-item active" data-page="dashboard">
+                <span class="nav-icon">🏠</span>
+                <span>Dashboard</span>
+            </button>
+
+            <button class="nav-item" data-page="restaurant">
+                <span class="nav-icon">🍽️</span>
+                <span>Restaurant</span>
+            </button>
+
+            <button class="nav-item" data-page="kitchen">
+                <span class="nav-icon">👩‍🍳</span>
+                <span>Kitchen</span>
+            </button>
+
+            <button class="nav-item" data-page="menu">
+                <span class="nav-icon">📖</span>
+                <span>Menu & Recipes</span>
+            </button>
+
+            <button class="nav-item" data-page="inventory">
+                <span class="nav-icon">📦</span>
+                <span>Inventory</span>
+            </button>
+
+            <button class="nav-item" data-page="upgrades">
+                <span class="nav-icon">⭐</span>
+                <span>Upgrades</span>
+            </button>
+        </nav>
+
+        <div class="sidebar-bottom">
+            <div class="daily-goal">
+                <div class="goal-heading">
+                    <span>🎯 Daily Goal</span>
+                    <strong id="goalProgressText">0/500</strong>
+                </div>
+                <div class="progress-track">
+                    <div class="progress-fill" id="goalProgress"></div>
+                </div>
+                <small>Reach today's revenue target!</small>
             </div>
 
-            <div class="menu-content">
+            <button class="nav-item" id="soundToggle">
+                <span class="nav-icon">🔊</span>
+                <span>Sound: ON</span>
+            </button>
+        </div>
+    </aside>
 
-                <p class="eyebrow">
-                    SEBUAH PERMAINAN HOROR PSIKOLOGIS
-                </p>
+    <!-- MAIN CONTENT -->
+    <main class="main-content">
 
-                <h1 class="game-title">
-                    RUMAH<br>TERAKHIR
-                </h1>
+        <!-- TOPBAR -->
+        <header class="topbar">
+            <div class="topbar-left">
+                <button class="mobile-menu" id="mobileMenu">☰</button>
+                <div>
+                    <h1 id="pageTitle">Dashboard</h1>
+                    <p id="pageSubtitle">Welcome back, Chef! Let's serve something delicious.</p>
+                </div>
+            </div>
 
-                <p class="menu-description">
-                    Beberapa pintu seharusnya tidak pernah dibuka.
-                </p>
-
-                <div class="menu-buttons">
-
-                    <button id="startButton">
-                        MULAI PERMAINAN
-                    </button>
-
-                    <button id="continueButton">
-                        LANJUTKAN PERMAINAN
-                    </button>
-
-                    <button id="settingsButton">
-                        PENGATURAN
-                    </button>
-
-                    <button id="creditsButton">
-                        KREDIT
-                    </button>
-
+            <div class="topbar-right">
+                <div class="day-indicator">
+                    <span>🌤️</span>
+                    <div>
+                        <small>RESTAURANT DAY</small>
+                        <strong id="dayNumber">Day 1</strong>
+                    </div>
                 </div>
 
-                <p class="menu-footer">
-                    RUMAH TERAKHIR © 2026
-                </p>
+                <div class="money-display">
+                    <span>🪙</span>
+                    <strong id="moneyDisplay">1,000</strong>
+                </div>
 
+                <div class="gem-display">
+                    <span>💎</span>
+                    <strong id="gemDisplay">5</strong>
+                </div>
+            </div>
+        </header>
+
+        <!-- DASHBOARD PAGE -->
+        <section class="page active" id="dashboard">
+
+            <div class="welcome-banner">
+                <div class="welcome-content">
+                    <span class="banner-tag">🌊 YOUR SEAFOOD ADVENTURE</span>
+                    <h2>Welcome to<br>Ocean Bites!</h2>
+                    <p>Build your dream seafood restaurant, one delicious dish at a time.</p>
+                    <button class="primary-btn" data-goto="restaurant">
+                        Open Restaurant <span>→</span>
+                    </button>
+                </div>
+                <div class="banner-decoration">
+                    <div class="banner-bubble bubble-one"></div>
+                    <div class="banner-bubble bubble-two"></div>
+                    <div class="banner-bubble bubble-three"></div>
+                    <div class="banner-crab">🦀</div>
+                    <div class="banner-fish">🐠</div>
+                    <div class="banner-shell">🐚</div>
+                </div>
             </div>
 
-        </section>
+            <!-- STATS -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon orange">💰</div>
+                    <div>
+                        <span>Total Revenue</span>
+                        <h3 id="totalRevenue">1,000</h3>
+                        <small>Lifetime earnings</small>
+                    </div>
+                </div>
 
+                <div class="stat-card">
+                    <div class="stat-icon blue">👥</div>
+                    <div>
+                        <span>Customers Served</span>
+                        <h3 id="customersServed">0</h3>
+                        <small>Happy customers</small>
+                    </div>
+                </div>
 
-        <!-- ==============================
-             LAYAR PERMAINAN
-        =============================== -->
-        <section id="gameScreen" class="screen">
+                <div class="stat-card">
+                    <div class="stat-icon purple">⭐</div>
+                    <div>
+                        <span>Restaurant Rating</span>
+                        <h3 id="restaurantRating">5.0</h3>
+                        <small>Customer satisfaction</small>
+                    </div>
+                </div>
 
-            <div id="scene">
+                <div class="stat-card">
+                    <div class="stat-icon green">🍳</div>
+                    <div>
+                        <span>Cooking Stations</span>
+                        <h3 id="stoveTotal">1</h3>
+                        <small>Available stoves</small>
+                    </div>
+                </div>
+            </div>
 
-                <div id="sceneBackground"></div>
+            <div class="dashboard-grid">
 
-                <div id="sceneLighting"></div>
-
-                <div id="sceneOverlay"></div>
-
-                <div id="sceneContent">
-
-                    <!-- INFORMASI LOKASI -->
-                    <header class="top-bar">
-
+                <div class="content-card level-card">
+                    <div class="section-heading">
                         <div>
-                            <span class="location-label">
-                                LOKASI SAAT INI
-                            </span>
-
-                            <h2 id="locationName">
-                                RUANG TAMU
-                            </h2>
+                            <h3>⭐ Restaurant Progress</h3>
+                            <p>Grow your restaurant and unlock new things.</p>
                         </div>
+                        <span class="level-badge" id="levelBadge">LV. 1</span>
+                    </div>
 
-                        <div id="gameTime">
-                            23:47
-                        </div>
-
-                    </header>
-
-
-                    <!-- STATUS PERMAINAN -->
-                    <div id="statusBar">
-
-                        <div class="status-item">
-                            <span>KESEHATAN</span>
-                            <div class="status-track">
-                                <div id="healthBar"></div>
+                    <div class="level-information">
+                        <div class="level-number" id="levelNumber">1</div>
+                        <div class="level-details">
+                            <strong id="levelName">Little Seafood Shop</strong>
+                            <span id="xpText">0 / 100 XP</span>
+                            <div class="progress-track xp-track">
+                                <div class="progress-fill" id="xpProgress"></div>
                             </div>
                         </div>
+                    </div>
 
-                        <div class="status-item">
-                            <span>KETENANGAN</span>
-                            <div class="status-track">
-                                <div id="sanityBar"></div>
-                            </div>
+                    <div class="unlock-preview">
+                        <span>🎁 Next Level Reward</span>
+                        <strong id="nextReward">New Menu + 1 Stove</strong>
+                    </div>
+                </div>
+
+                <div class="content-card daily-card">
+                    <div class="section-heading">
+                        <div>
+                            <h3>📋 Daily Challenge</h3>
+                            <p>Complete today's mission.</p>
                         </div>
-
+                        <span class="challenge-icon">🏆</span>
                     </div>
 
-
-                    <!-- AREA NARASI -->
-                    <div id="narrationBox">
-
-                        <p id="narrationText"></p>
-
-                        <span id="typingIndicator">
-                            ...
-                        </span>
-
+                    <div class="challenge-item">
+                        <span class="challenge-emoji">🍤</span>
+                        <div>
+                            <strong>Serve 5 Customers</strong>
+                            <span id="challengeText">0 / 5 completed</span>
+                        </div>
                     </div>
 
-
-                    <!-- AREA DIALOG -->
-                    <div id="dialogueBox" class="hidden">
-
-                        <p id="characterName">
-                            NAMA TOKOH
-                        </p>
-
-                        <p id="dialogueText"></p>
-
+                    <div class="progress-track">
+                        <div class="progress-fill" id="challengeProgress"></div>
                     </div>
 
+                    <div class="challenge-reward">
+                        <span>Reward: 🪙 150</span>
+                        <span id="challengeStatus">In Progress</span>
+                    </div>
+                </div>
+            </div>
 
-                    <!-- AREA INTERAKSI -->
-                    <div id="interactionBox">
+            <div class="content-card activity-card">
+                <div class="section-heading">
+                    <div>
+                        <h3>📊 Restaurant Activity</h3>
+                        <p>Your latest restaurant activities.</p>
+                    </div>
+                </div>
+                <div class="activity-list" id="activityList">
+                    <div class="empty-state">🌊 Your restaurant journey starts here!</div>
+                </div>
+            </div>
+        </section>
 
-                        <p class="interaction-heading">
-                            APA YANG INGIN KAMU LAKUKAN?
-                        </p>
+        <!-- RESTAURANT PAGE -->
+        <section class="page" id="restaurant">
 
-                        <div id="interactionOptions"></div>
+            <div class="restaurant-header">
+                <div>
+                    <h2>🍽️ Your Restaurant</h2>
+                    <p>Welcome your guests and take their orders!</p>
+                </div>
+                <div class="restaurant-status">
+                    <span class="status-dot"></span>
+                    Restaurant Open
+                </div>
+            </div>
 
+            <div class="restaurant-scene">
+                <div class="scene-background">
+                    <div class="scene-sun">☀️</div>
+                    <div class="scene-cloud cloud-one">☁️</div>
+                    <div class="scene-cloud cloud-two">☁️</div>
+                    <div class="scene-ocean"></div>
+                    <div class="scene-floor"></div>
+
+                    <div class="restaurant-sign">
+                        🦀 OCEAN BITES
                     </div>
 
+                    <div class="restaurant-decor decor-one">🌴</div>
+                    <div class="restaurant-decor decor-two">🪴</div>
 
-                    <!-- NAVIGASI BAWAH -->
-                    <footer class="bottom-bar">
+                    <div class="tables-area" id="tablesArea">
+                        <!-- Tables generated by JavaScript -->
+                    </div>
 
-                        <button id="inventoryButton">
-                            TAS
-                        </button>
+                    <div class="customer-area" id="customerArea">
+                        <!-- Customers generated by JavaScript -->
+                    </div>
 
-                        <button id="journalButton">
-                            CATATAN
-                        </button>
+                    <div class="scene-counter">
+                        <span>👥</span>
+                        <strong id="guestCount">0</strong>
+                        <small>Guests</small>
+                    </div>
+                </div>
+            </div>
 
-                        <button id="mapButton">
-                            PETA
-                        </button>
-
-                        <button id="menuButton">
-                            MENU
-                        </button>
-
-                    </footer>
-
+            <div class="restaurant-controls">
+                <div class="content-card">
+                    <div class="section-heading">
+                        <div>
+                            <h3>🪑 Restaurant Tables</h3>
+                            <p>Manage your seating capacity.</p>
+                        </div>
+                        <span id="tableCapacity">2 Tables</span>
+                    </div>
+                    <div id="tableManagement" class="table-management"></div>
                 </div>
 
-            </div>
-
-        </section>
-
-
-        <!-- ==============================
-             INVENTORY
-        =============================== -->
-        <section id="inventoryScreen" class="screen">
-
-            <div class="panel">
-
-                <p class="panel-eyebrow">BARANG BAWAAN</p>
-
-                <h2>TAS BARANG</h2>
-
-                <p class="panel-description">
-                    Barang-barang yang berhasil kamu temukan.
-                </p>
-
-                <div id="inventoryItems"></div>
-
-                <button class="backButton">
-                    KEMBALI
-                </button>
-
-            </div>
-
-        </section>
-
-
-        <!-- ==============================
-             CATATAN
-        =============================== -->
-        <section id="journalScreen" class="screen">
-
-            <div class="panel">
-
-                <p class="panel-eyebrow">REKAMAN PERJALANAN</p>
-
-                <h2>CATATAN</h2>
-
-                <div id="journalEntries"></div>
-
-                <button class="backButton">
-                    KEMBALI
-                </button>
-
-            </div>
-
-        </section>
-
-
-        <!-- ==============================
-             PETA
-        =============================== -->
-        <section id="mapScreen" class="screen">
-
-            <div class="panel">
-
-                <p class="panel-eyebrow">DENAH BANGUNAN</p>
-
-                <h2>PETA RUMAH</h2>
-
-                <div id="mapContent"></div>
-
-                <button class="backButton">
-                    KEMBALI
-                </button>
-
-            </div>
-
-        </section>
-
-
-        <!-- ==============================
-             PENGATURAN
-        =============================== -->
-        <section id="settingsScreen" class="screen">
-
-            <div class="panel">
-
-                <p class="panel-eyebrow">SESUAIKAN PERMAINAN</p>
-
-                <h2>PENGATURAN</h2>
-
-                <div class="setting-option">
-
-                    <label for="textSpeed">
-                        KECEPATAN TEKS
-                    </label>
-
-                    <input type="range" id="textSpeed" min="10" max="100" value="35">
-
+                <div class="content-card">
+                    <div class="section-heading">
+                        <div>
+                            <h3>👨‍🍳 Customer Queue</h3>
+                            <p>Guests waiting to be seated.</p>
+                        </div>
+                        <span class="count-badge" id="queueCount">0 Waiting</span>
+                    </div>
+                    <div id="customerQueue" class="customer-queue"></div>
                 </div>
+            </div>
+        </section>
 
-                <div class="setting-option">
+        <!-- KITCHEN PAGE -->
+        <section class="page" id="kitchen">
 
-                    <label for="brightnessControl">
-                        KECERAHAN LAYAR
-                    </label>
-
-                    <input type="range" id="brightnessControl" min="50" max="120" value="100">
-
+            <div class="page-intro">
+                <div>
+                    <h2>👩‍🍳 Kitchen & Cooking</h2>
+                    <p>Prepare delicious seafood dishes for your customers.</p>
                 </div>
-
-                <button id="resetSettingsButton">
-                    ATUR ULANG
-                </button>
-
-                <button class="backButton">
-                    KEMBALI
-                </button>
-
+                <span class="kitchen-level" id="kitchenLevel">🔥 1 Active Stove</span>
             </div>
 
-        </section>
-
-
-        <!-- ==============================
-             KREDIT
-        =============================== -->
-        <section id="creditsScreen" class="screen">
-
-            <div class="panel">
-
-                <p class="panel-eyebrow">DI BALIK CERITA</p>
-
-                <h2>KREDIT</h2>
-
-                <p>RUMAH TERAKHIR</p>
-
-                <p>
-                    Sebuah permainan horor interaktif.
-                </p>
-
-                <p>
-                    Terima kasih telah memasuki rumah ini.
-                </p>
-
-                <button class="backButton">
-                    KEMBALI
-                </button>
-
+            <div class="content-card cooking-area">
+                <div class="section-heading">
+                    <div>
+                        <h3>🔥 Cooking Stations</h3>
+                        <p>Each stove can prepare one order at a time.</p>
+                    </div>
+                    <span class="count-badge" id="stoveCount">1 Stove</span>
+                </div>
+                <div id="stoveGrid" class="stove-grid"></div>
             </div>
 
+            <div class="content-card orders-card">
+                <div class="section-heading">
+                    <div>
+                        <h3>🧾 Incoming Orders</h3>
+                        <p>Manage orders and serve your customers.</p>
+                    </div>
+                    <span class="count-badge" id="orderCount">0 Orders</span>
+                </div>
+                <div id="kitchenOrders" class="kitchen-orders"></div>
+            </div>
         </section>
 
+        <!-- MENU PAGE -->
+        <section class="page" id="menu">
 
-        <!-- ==============================
-             JUMPSCARE
-        =============================== -->
-        <div id="jumpscareScreen" class="hidden">
+            <div class="page-intro">
+                <div>
+                    <h2>📖 Menu & Recipes</h2>
+                    <p>Discover new seafood recipes as your restaurant grows.</p>
+                </div>
+                <span class="level-badge" id="menuLevel">LEVEL 1</span>
+            </div>
 
-            <div id="jumpscareContent"></div>
+            <div class="menu-filter" id="menuFilters">
+                <button class="filter-btn active" data-filter="all">All Dishes</button>
+                <button class="filter-btn" data-filter="unlocked">Unlocked</button>
+                <button class="filter-btn" data-filter="locked">Locked</button>
+            </div>
 
-        </div>
+            <div class="menu-grid" id="menuGrid"></div>
+        </section>
 
+        <!-- INVENTORY PAGE -->
+        <section class="page" id="inventory">
 
-        <!-- ==============================
-             NOTIFIKASI
-        =============================== -->
-        <div id="notification" class="hidden"></div>
+            <div class="page-intro">
+                <div>
+                    <h2>📦 Inventory Storage</h2>
+                    <p>Keep your ingredients fresh and ready to cook.</p>
+                </div>
+                <button class="primary-btn" id="restockAll">Restock All 🛒</button>
+            </div>
 
+            <div class="inventory-summary">
+                <div class="content-card">
+                    <span>📦 Total Ingredients</span>
+                    <h2 id="totalIngredients">0</h2>
+                </div>
+                <div class="content-card">
+                    <span>🛒 Restock Cost</span>
+                    <h2 id="restockCost">0</h2>
+                </div>
+            </div>
 
-        <!-- ==============================
-             EFEK VISUAL
-        =============================== -->
-        <div id="visualEffects">
+            <div class="inventory-grid" id="inventoryGrid"></div>
+        </section>
 
-            <div id="screenFlash"></div>
+        <!-- UPGRADES PAGE -->
+        <section class="page" id="upgrades">
 
-            <div id="screenVignette"></div>
+            <div class="page-intro">
+                <div>
+                    <h2>⭐ Restaurant Upgrades</h2>
+                    <p>Invest in your restaurant and make it bigger!</p>
+                </div>
+            </div>
 
-            <div id="screenGrain"></div>
+            <div class="upgrade-grid" id="upgradeGrid"></div>
+        </section>
 
-        </div>
+    </main>
+</div>
 
+<!-- NOTIFICATION -->
+<div class="notification-container" id="notificationContainer"></div>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="modalOverlay">
+    <div class="game-modal" id="gameModal">
+        <button class="modal-close" id="modalClose">✕</button>
+        <div id="modalContent"></div>
     </div>
+</div>
 
+<!-- LEVEL UP EFFECT -->
+<div class="levelup-overlay" id="levelupOverlay">
+    <div class="levelup-content">
+        <div class="levelup-stars">✨ ⭐ ✨</div>
+        <div class="levelup-emoji">🎉</div>
+        <h1>LEVEL UP!</h1>
+        <p>Your restaurant is growing!</p>
+        <div class="levelup-reward" id="levelupReward"></div>
+        <button class="primary-btn" id="levelupContinue">Amazing!</button>
+    </div>
+</div>
 
-    <!-- ==============================
-         JAVASCRIPT
-    =============================== -->
+<!-- CONFETTI -->
+<div id="confettiContainer"></div>
 
-    <script src="js/story.js"></script>
-    <script src="js/effects.js"></script>
-    <script src="js/game.js"></script>
-
+<script src="game.js"></script>
 </body>
-
 </html>
